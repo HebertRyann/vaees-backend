@@ -43,11 +43,14 @@ INSERT INTO sales (id, product_id, quantity) VALUES
 (11, 4, 70),
 (12, 5, 40);
 
-SELECT category.name as category, product.name as product, SUM(sale.quantity) as total_unit_sale
+SELECT 
+  category.name as category, 
+  product.name as product, 
+  SUM(sale.quantity) as total_unit_sale
 FROM products product 
 INNER JOIN categories category 
-ON category.id = product.category_id
+  ON category.id = product.category_id
 INNER JOIN sales sale 
-ON sale.product_id = product.id
+  ON sale.product_id = product.id
 GROUP BY product.id, product.name, category.name
 HAVING total_unit_sale > 100;

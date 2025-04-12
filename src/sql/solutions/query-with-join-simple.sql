@@ -25,9 +25,12 @@ INSERT INTO orders (id, customer_id, total) VALUES
 (5, 1, 50),
 (6, 2, 75);
 
-SELECT customer.id as id, customer.name as nome, COUNT(row_order.id) as quantity 
+SELECT 
+  customer.id as id, 
+  customer.name as nome, 
+  COUNT(row_order.id) as quantity 
 FROM customers customer 
 INNER JOIN orders row_order 
-ON row_order.customer_id = customer.id
+  ON row_order.customer_id = customer.id
 GROUP BY customer.id, customer.name
 ORDER BY quantity DESC;
