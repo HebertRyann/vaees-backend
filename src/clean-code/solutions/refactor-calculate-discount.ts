@@ -20,3 +20,6 @@ function calculateDiscount(price: number, isPremium: boolean): number {
   }
   return calculateNonPremiumDiscount(price)
 }
+
+const calculateDiscountResult = calculateDiscount(150, true)
+console.log(calculateDiscountResult)

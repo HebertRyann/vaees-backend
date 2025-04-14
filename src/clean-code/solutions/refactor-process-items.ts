@@ -7,9 +7,28 @@ interface ProcessItemsProps {
 
 
 function printExpensiveItems(items: ProcessItemsProps[]): void {
-  items.forEach(currentItem => {
-    if (currentItem.price > PRICE_VALUE_LIMIT_CONSIDERED_EXPENSIVE) {
-      console.log(`${currentItem.name} is expensive`);
-    }
+  items
+  .filter(filterItem => filterItem.price > PRICE_VALUE_LIMIT_CONSIDERED_EXPENSIVE)
+  .forEach(currentItem => {
+    console.log(`${currentItem.name} is expensive`);
   })
 }
+
+printExpensiveItems([
+  {
+    name: 'Television',
+    price: 150
+  },
+  {
+    name: 'Notebook',
+    price: 100
+  },
+  {
+    name: 'Smartphone',
+    price: 100
+  },
+  {
+    name: 'Computer monitor',
+    price: 200
+  }
+])
